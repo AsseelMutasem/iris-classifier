@@ -12,7 +12,7 @@ cd iris-classifier
 python -m venv venv && .\venv\Scripts\activate
 pip install -r requirements.txt
 python src/train.py --test-size 0.2 --random-state 42
-```
+
 
 ## Project Structure
 
@@ -31,4 +31,4 @@ iris-classifier/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
----
+```
