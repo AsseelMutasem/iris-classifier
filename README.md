@@ -17,7 +17,7 @@ Of course! It looks like the project structure tree in your README was not forma
 
 Here is the corrected version with the proper tree structure and the fixed command in the "Quick start" section.
 
-```markdown
+```s
 # Iris Classifier (Decision Tree & SVC)
 
 ## Overview
