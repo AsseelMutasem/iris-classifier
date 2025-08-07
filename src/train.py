@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
+import joblib
 
 def train_model(test_size=0.2, random_state=42):
     # Load Iris dataset
@@ -28,6 +29,10 @@ def train_model(test_size=0.2, random_state=42):
     tree_acc = accuracy_score(y_test, tree_preds)
     print(f"Decision Tree Accuracy: {tree_acc:.4f}")
 
+    # Save decision tree model
+    joblib.dump(tree_clf, "outputs/tree_model.pkl")
+
+    # Plot confusion matrix for decision tree
     tree_cm = confusion_matrix(y_test, tree_preds)
     tree_disp = ConfusionMatrixDisplay(confusion_matrix=tree_cm, display_labels=iris.target_names)
     tree_disp.plot(cmap="Blues", values_format="d")
@@ -42,6 +47,10 @@ def train_model(test_size=0.2, random_state=42):
     svc_acc = accuracy_score(y_test, svc_preds)
     print(f"SVC Accuracy: {svc_acc:.4f}")
 
+    # Save SVC model
+    joblib.dump(svc_clf, "outputs/svc_model.pkl")
+
+    # Plot confusion matrix for SVC
     svc_cm = confusion_matrix(y_test, svc_preds)
     svc_disp = ConfusionMatrixDisplay(confusion_matrix=svc_cm, display_labels=iris.target_names)
     svc_disp.plot(cmap="Purples", values_format="d")
@@ -49,8 +58,10 @@ def train_model(test_size=0.2, random_state=42):
     plt.savefig("outputs/svc_confusion_matrix.png")
     plt.close()
 
+    
+
     # Return tree accuracy (for testing)
-    return tree_acc
+    return tree_acc, svc_acc
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Decision Tree and SVC on Iris Dataset.")
