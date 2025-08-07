@@ -27,8 +27,10 @@ iris-classifier/
 ├── tests/
 │   └── test_train.py        # accuracy test for both models
 ├── outputs/
+│   ├── svc_confusion_matrix.png
+│   ├── svc_model.pkl
 │   ├── tree_confusion_matrix.png
-│   └── svc_confusion_matrix.png
+│   └── tree_model.pkl
 ├── .gitignore
 ├── LICENSE
 ├── README.md
